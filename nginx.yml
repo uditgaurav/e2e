@@ -7,7 +7,7 @@ metadata:
     run: nginx
   annotations:
     litmuschaos.io/chaos: "true"
-  namespace: litmus
+  namespace: qa-test
 spec:
   replicas: 3
   selector:
@@ -35,7 +35,7 @@ metadata:
   labels:
     run: nginx
   name: nginx
-  namespace: litmus
+  namespace: qa-test
 spec:
   ports:
   - port: 80
