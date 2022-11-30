@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pod-network-duplication-nginx
   labels:
+    chaos: hce
     app: pod-network-duplication-nginx
   annotations:
     litmuschaos.io/chaos: "true"

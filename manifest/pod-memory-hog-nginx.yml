@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pod-memory-hog-nginx
   labels:
+    chaos: hce
     app: pod-memory-hog-nginx
   annotations:
     litmuschaos.io/chaos: "true"

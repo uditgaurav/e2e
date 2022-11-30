@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pod-delete-nginx
   labels:
+    chaos: hce
     app: pod-delete-nginx
   annotations:
     litmuschaos.io/chaos: "true"

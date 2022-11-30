@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pod-network-latency-nginx
   labels:
+    chaos: hce
     app: pod-network-latency-nginx
   annotations:
     litmuschaos.io/chaos: "true"

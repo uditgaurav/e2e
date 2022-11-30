@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pod-io-stress-nginx
   labels:
+    chaos: hce
     app: pod-io-stress-nginx
   annotations:
     litmuschaos.io/chaos: "true"

@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: container-kill-nginx
   labels:
+    chaos: hce
     app: container-kill-nginx
   annotations:
     litmuschaos.io/chaos: "true"

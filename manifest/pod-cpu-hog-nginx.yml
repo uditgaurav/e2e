@@ -2,9 +2,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pod-delete-nginx
+  name: pod-cpu-hog-nginx
   labels:
-    app: pod-delete-nginx
+    chaos: hce
+    app: pod-cpu-hog-nginx
   annotations:
     litmuschaos.io/chaos: "true"
   namespace: qa-test
@@ -12,14 +13,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: pod-delete-nginx
+      app: pod-cpu-hog-nginx
   template:
     metadata:
       labels:
-        app: pod-delete-nginx
+        app: pod-cpu-hog-nginx
     spec:
       containers:
-      - name: pod-delete-nginx
+      - name: pod-cpu-hog-nginx
         image: nginx:alpine
         ports:
         - containerPort: 80

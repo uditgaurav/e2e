@@ -4,6 +4,7 @@ kind: Deployment
 metadata:
   name: pod-network-corruption-nginx
   labels:
+    chaos: hce
     app: pod-network-corruption-nginx
   annotations:
     litmuschaos.io/chaos: "true"
