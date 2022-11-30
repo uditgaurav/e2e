@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-network-duplication-nginx
+  labels:
+    app: pod-network-duplication-nginx
+  annotations:
+    litmuschaos.io/chaos: "true"
+  namespace: qa-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-network-duplication-nginx
+  template:
+    metadata:
+      labels:
+        app: pod-network-duplication-nginx
+    spec:
+      containers:
+      - name: pod-network-duplication-nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80

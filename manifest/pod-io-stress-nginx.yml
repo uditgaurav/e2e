@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-io-stress-nginx
+  labels:
+    app: pod-io-stress-nginx
+  annotations:
+    litmuschaos.io/chaos: "true"
+  namespace: qa-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-io-stress-nginx
+  template:
+    metadata:
+      labels:
+        app: pod-io-stress-nginx
+    spec:
+      containers:
+      - name: pod-io-stress-nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80

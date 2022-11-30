@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-network-latency-nginx
+  labels:
+    app: pod-network-latency-nginx
+  annotations:
+    litmuschaos.io/chaos: "true"
+  namespace: qa-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-network-latency-nginx
+  template:
+    metadata:
+      labels:
+        app: pod-network-latency-nginx
+    spec:
+      containers:
+      - name: pod-network-latency-nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80

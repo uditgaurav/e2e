@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod-memory-hog-nginx
+  labels:
+    app: pod-memory-hog-nginx
+  annotations:
+    litmuschaos.io/chaos: "true"
+  namespace: qa-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod-memory-hog-nginx
+  template:
+    metadata:
+      labels:
+        app: pod-memory-hog-nginx
+    spec:
+      containers:
+      - name: pod-memory-hog-nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80

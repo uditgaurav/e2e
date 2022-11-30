@@ -1,0 +1,25 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container-kill-nginx
+  labels:
+    app: container-kill-nginx
+  annotations:
+    litmuschaos.io/chaos: "true"
+  namespace: qa-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: container-kill-nginx
+  template:
+    metadata:
+      labels:
+        app: container-kill-nginx
+    spec:
+      containers:
+      - name: container-kill-nginx
+        image: nginx:alpine
+        ports:
+        - containerPort: 80
